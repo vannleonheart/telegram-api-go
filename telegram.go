@@ -3,6 +3,7 @@ package telegram
 import (
 	"errors"
 	"fmt"
+	"github.com/vannleonheart/goutil"
 )
 
 func New(config *Config) *Client {
@@ -40,7 +41,7 @@ func (c *Client) SendMessage(to, message string, parseMode *string) (*SendMessag
 		"Content-Type": "application/json",
 	}
 
-	err := sendHttpPost(targetUrl, reqBody, &reqHeaders, &result)
+	_, err := goutil.SendHttpPost(targetUrl, reqBody, &reqHeaders, &result)
 	if err != nil {
 		return nil, err
 	}
