@@ -41,7 +41,7 @@ func (c *Client) SendMessage(to, message string, parseMode *string) (*SendMessag
 		"Content-Type": "application/json",
 	}
 
-	_, err := goutil.SendHttpPost(targetUrl, reqBody, &reqHeaders, &result)
+	_, err := goutil.SendHttpPost(targetUrl, reqBody, &reqHeaders, &result, nil)
 	if err != nil {
 		return nil, err
 	}
